@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <style>
+        label {
+            display: block;
+            font: 1rem 'Fira Sans', sans-serif;
+        }
+        
+        input,
+        label {
+            margin: .4rem 0;
+        }
+        
+        textarea {
+            resize: none;
+        }
+        
+        #green {
+            width: 200px;
+            height: 200px;
+            border: 1px solid green;
+            float: left;
+            margin: 5px;
+        }
+        
+        #red {
+            width: 100px;
+            height: 200px;
+            border: 1px solid red;
+            margin: 5px;
+            float: left;
+        }
+        
+        #blue {
+            width: 310px;
+            height: 100px;
+            border: 1px solid blue;
+            margin: 5px;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="green">
+        <textarea readonly name="story" rows="10" id="room_description">It was a dark and stormy night...</textarea>
+    </div>
+    <div id="red">
+        <textarea readonly name="story" rows="10" id="messages">"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</textarea>
+    </div>
+    <div id="blue">
+        <input type="text" id="name" name="name" required minlength="4" maxlength="32" size="10" />
+        <button>Submit</button>
+    </div>
+
+    <script>
+        var textarea = document.getElementById('messages');
+        textarea.scrollTop = textarea.scrollHeight;
+    </script>
+</body>
+
+</html>
