@@ -4,11 +4,14 @@
     <style>
         input {
             height: auto;
-            width: min-content;
+            width: 100%;
         }
 
         button {
             height: auto;
+            float: right;
+            flex: 0 0;
+            /* Don't allow resizing the button with flex */
         }
 
         textarea {
@@ -17,7 +20,7 @@
             height: 100%;
         }
 
-        #green {
+        #room_description {
             width: 620px;
             height: 200px;
             border: 10px solid green;
@@ -26,7 +29,7 @@
             margin: 0px;
         }
 
-        #red {
+        #messages {
             width: 620px;
             height: 200px;
             border: 10px solid red;
@@ -34,30 +37,33 @@
             clear: both;
         }
 
-        #blue {
+        #user_input {
             width: 620px;
             height: auto;
             border: 10px solid blue;
             margin: 0px;
             clear: both;
+            display: flex;
+            align-items: stretch;
         }
     </style>
 </head>
 
 <body>
-    <div id="green">
+    <div id="room_description">
         <textarea readonly name="story" rows="10" id="room_description">It was a dark and stormy night...</textarea>
     </div>
-    <div id="red">
-        <textarea readonly name="story" rows="10" id="messages">"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</textarea>
+    <div id="messages">
+        <textarea readonly name="story" rows="10" id="text_messages">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor sed viverra ipsum nunc aliquet bibendum enim. In massa tempor nec feugiat. Nunc aliquet bibendum enim facilisis gravida. Nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper. Amet luctus venenatis lectus magna fringilla. Volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in. Egestas egestas fringilla phasellus faucibus scelerisque eleifend. Sagittis orci a scelerisque purus semper eget duis. Nulla pharetra diam sit amet nisl suscipit. Sed adipiscing diam donec adipiscing tristique risus nec feugiat in. Fusce ut placerat orci nulla. Pharetra vel turpis nunc eget lorem dolor. Tristique senectus et netus et malesuada. Etiam tempor orci eu lobortis elementum nibh tellus molestie. Neque egestas congue quisque egestas. Egestas integer eget aliquet nibh praesent tristique. Vulputate mi sit amet mauris. Sodales neque sodales ut etiam sit. Dignissim suspendisse in est ante in. Volutpat commodo sed egestas egestas. Felis donec et odio pellentesque diam. Pharetra vel turpis nunc eget lorem dolor sed viverra. Porta nibh venenatis cras sed felis eget. Aliquam ultrices sagittis orci a. Dignissim diam quis enim lobortis. Aliquet porttitor lacus luctus accumsan. Dignissim convallis aenean et tortor at risus viverra adipiscing at.</textarea>
     </div>
-    <div id="blue" style="display: flex; align-items: stretch;">
-        <input type="text" id="name" name="name" maxlength="40" style="width: 100%;" />
-        <button style="float: right; flex: 0 0">Submit</button>
+    <div id="user_input">
+        <input type="text" id="input_text" name="input_text" maxlength="40" />
+        <button>Submit</button>
     </div>
 
     <script>
-        var textarea = document.getElementById('messages');
+        // Always scroll messages window to the bottom of text
+        var textarea = document.getElementById('text_messages');
         textarea.scrollTop = textarea.scrollHeight;
     </script>
 </body>
